@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection Result</title>
+</head>
+<body>
+    <h1>Analysis Result for {{ url }}</h1>
+    <p><strong>Status:</strong> {{ result["status"] }}</p>
+    <p><strong>Phishing Score:</strong> {{ result["phishing_score"] }}%</p>
+
+    {% if result["reasons"] %}
+        <h3>Reasons:</h3>
+        <ul>
+            {% for reason in result["reasons"] %}
+                <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="/">Analyze Another URL</a>
+</body>
+</html>
